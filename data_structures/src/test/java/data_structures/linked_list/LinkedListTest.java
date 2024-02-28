@@ -68,6 +68,26 @@ public class LinkedListTest {
     }
 
     @Test
+    public void testAddFirst() {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addFirst(3);
+        assert list.size() == 3;
+        assertArrayEquals(new Integer[] {3, 2, 1}, list.toArray());
+    }
+
+    @Test
+    public void testAddLast() {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        assert list.size() == 3;
+        assertArrayEquals(new Integer[] {1, 2, 3}, list.toArray());
+    }
+
+    @Test
     public void testAddAtIndex() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(1);
@@ -270,6 +290,52 @@ public class LinkedListTest {
         list.remove(2);
         assert list.size() == 2;
         assertArrayEquals(new Integer[] {1, 2}, list.toArray());
+    }
+
+    @Test
+    public void testRemoveWhenMultiple() {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.remove(1);
+        assert list.size() == 3;
+        assertArrayEquals(new Integer[] {1, 3, 4}, list.toArray());
+    }
+
+    @Test
+    public void testRemoveFirst() {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.removeFirst();
+        assert list.size() == 2;
+        assertArrayEquals(new Integer[] {2, 3}, list.toArray());
+    }
+
+    @Test
+    public void testRemoveFirstWhenEmpty() {
+        LinkedList<Integer> list = new LinkedList<>();
+        assert list.removeFirst() == null;
+    }
+
+    @Test
+    public void testRemoveLast() {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.removeLast();
+        assert list.size() == 2;
+        assertArrayEquals(new Integer[] {1, 2}, list.toArray());
+    }
+
+    @Test
+    public void testRemoveLastWhenEmpty() {
+        LinkedList<Integer> list = new LinkedList<>();
+        assert list.removeLast() == null;
     }
 
     @Test

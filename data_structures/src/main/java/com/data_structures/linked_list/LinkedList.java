@@ -38,8 +38,22 @@ public class LinkedList<T> {
         this.size = 0;
     }
 
+    public void addFirst(T element) {
+        Node <T> newNode = new Node<T>(element, head.next, head);
+        head.next.previous = newNode;
+        head.next = newNode;
+        size++;
+    }
+
+    public void addLast(T element) {
+        Node<T> newNode = new Node<T>(element, tail, tail.previous);
+        tail.previous.next = newNode;
+        tail.previous = newNode;
+        size++;
+    }
+
     public void add(T element) {
-        add(size, element);
+        addLast(element);
     }
 
     public void add(int index, T element) {
@@ -48,20 +62,16 @@ public class LinkedList<T> {
         }
 
         if(index == 0) {
-            Node <T> newNode = new Node<T>(element, head.next, head);
-            head.next.previous = newNode;
-            head.next = newNode;
+            addFirst(element);
         } else if(index == size) {
-            Node<T> newNode = new Node<T>(element, tail, tail.previous);
-            tail.previous.next = newNode;
-            tail.previous = newNode;
+            addLast(element);
         } else {
             Node<T> current = getNode(index);
             Node<T> newNode = new Node<T>(element, current, current.previous);
             current.previous.next = newNode;
             current.previous = newNode;
+            size++;
         }
-        size++;
     }
 
     public T get(int index) {
@@ -75,21 +85,44 @@ public class LinkedList<T> {
         return oldData;
     }
 
+    public T removeFirst() {
+        if(size == 0) {
+            return null;
+        }
+
+        Node<T> current = head.next;
+        head.next = current.next;
+        current.next.previous = head;
+        size--;
+
+        return current.data;
+    }
+
+    public T removeLast() {
+        if(size == 0) {
+            return null;
+        }
+
+        Node<T> current = tail.previous;
+        tail.previous = current.previous;
+        current.previous.next = tail;
+        size--;
+
+        return current.data;
+    }
+
     public T remove(int index) {
         Node<T> current = getNode(index);
 
         if(index == 0) {
-            head.next = current.next;
-            current.next.previous = head;
+            return removeFirst();
         } else if(index == size - 1) {
-            tail.previous = current.previous;
-            current.previous.next = tail;
+            return removeLast();
         } else {
             current.previous.next = current.next;
             current.next.previous = current.previous;
+            size--;
         }
-
-        size--;
 
         return current.data;
     }
@@ -109,7 +142,7 @@ public class LinkedList<T> {
                     current.previous.next = current.next;
                     current.next.previous = current.previous;
                 }
-                
+
                 size--;
                 return current.data;
             }
