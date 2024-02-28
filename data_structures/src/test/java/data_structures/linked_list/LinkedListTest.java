@@ -1,11 +1,9 @@
 package data_structures.linked_list;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import com.data_structures.arraylist.ArrayList;
 import com.data_structures.linked_list.LinkedList;
 
 public class LinkedListTest {
