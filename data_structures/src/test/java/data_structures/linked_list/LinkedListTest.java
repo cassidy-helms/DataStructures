@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import com.data_structures.linked_list.LinkedList;
 
 public class LinkedListTest {
+    /*
+     * Test size() method
+     */
     @Test
     public void testSizeWhenEmpty() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -32,6 +35,9 @@ public class LinkedListTest {
         assert list.size() == 0;
     }
 
+    /*
+     * Test isEmpty() method
+     */
     @Test
     public void testIsEmptyWhenEmpty() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -57,6 +63,9 @@ public class LinkedListTest {
         assert list.isEmpty();
     }
 
+    /*
+     * Test add() method
+     */
     @Test
     public void testAdd() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -67,6 +76,9 @@ public class LinkedListTest {
         assertArrayEquals(new Integer[] {1, 2, 3}, list.toArray());
     }
 
+    /*
+     * Test addFirst() method
+     */
     @Test
     public void testAddFirst() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -77,6 +89,9 @@ public class LinkedListTest {
         assertArrayEquals(new Integer[] {3, 2, 1}, list.toArray());
     }
 
+    /*
+     * Test addLast() method
+     */
     @Test
     public void testAddLast() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -87,6 +102,9 @@ public class LinkedListTest {
         assertArrayEquals(new Integer[] {1, 2, 3}, list.toArray());
     }
 
+    /*
+     * Test addAtIndex() method
+     */
     @Test
     public void testAddAtIndex() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -125,6 +143,9 @@ public class LinkedListTest {
         }
     }
     
+    /*
+     * Test toArray() method
+     */
     @Test
     public void testToArray() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -140,6 +161,9 @@ public class LinkedListTest {
         assertArrayEquals(new Integer[] {}, list.toArray());
     }
 
+    /*
+     * Test get() method
+     */
     @Test
     public void testGet() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -182,6 +206,9 @@ public class LinkedListTest {
         }
     }
 
+    /*
+     * Test set() method
+     */
     @Test
     public void testSet() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -226,6 +253,9 @@ public class LinkedListTest {
         }
     }
 
+    /*
+     * Test remove() method
+     */
     @Test
     public void testRemove() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -304,6 +334,9 @@ public class LinkedListTest {
         assertArrayEquals(new Integer[] {1, 3, 4}, list.toArray());
     }
 
+    /*
+     * Test removeFirst() method
+     */
     @Test
     public void testRemoveFirst() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -321,6 +354,9 @@ public class LinkedListTest {
         assert list.removeFirst() == null;
     }
 
+    /*
+     * Test removeLast() method
+     */
     @Test
     public void testRemoveLast() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -338,6 +374,9 @@ public class LinkedListTest {
         assert list.removeLast() == null;
     }
 
+    /*
+     * Test clear() method
+     */
     @Test
     public void testClear() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -349,6 +388,9 @@ public class LinkedListTest {
         assertArrayEquals(new Integer[] {}, list.toArray());
     }
 
+    /*
+     * Test contains() method
+     */
     @Test
     public void testContains() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -373,6 +415,9 @@ public class LinkedListTest {
         assert !list.contains(4);
     }
 
+    /*
+     * Test indexOf() method
+     */
     @Test
     public void testIndexOf() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -397,6 +442,9 @@ public class LinkedListTest {
         assert list.indexOf(4) == -1;
     }
 
+    /*
+     * Test removeElement() method
+     */
     @Test
     public void testRemoveElement() {
         LinkedList<Integer> list = new LinkedList<>();
@@ -457,6 +505,9 @@ public class LinkedListTest {
         assertArrayEquals(new Integer[] {1, 2}, list.toArray());
     }
 
+    /*
+     * Test equals() method
+     */
     @Test
     public void testEquals() {
         LinkedList<Integer> list1 = new LinkedList<>();
@@ -528,6 +579,9 @@ public class LinkedListTest {
         assert !list1.equals(list2);
     }
 
+    /*
+     * Test toString() method
+     */
     @Test
     public void testToString() {
         LinkedList<Integer> list = new LinkedList<>();
