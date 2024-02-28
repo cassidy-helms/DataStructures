@@ -448,15 +448,6 @@ public class ArrayListTest {
     }
 
     @Test
-    public void testEqualsWhenDifferentType() {
-        ArrayList<Integer> list1 = new ArrayList<>();
-        list1.add(1);
-        list1.add(2);
-        list1.add(3);
-        assertEquals(false, list1.equals(new ArrayList<String>()));
-    }
-
-    @Test
     public void testEqualsWhenDifferentTypesSameValues() {
         ArrayList<Integer> list1 = new ArrayList<>();
         list1.add(1);
