@@ -1,5 +1,6 @@
 package com.data_structures.stack;
 
+// Not copied directly but inspried by the code from "Data Structures and Algorithm Analysis in Java" by Mark Allen Weiss
 // Manual implementation of a stack data structure
 // Based on my manual implementation of an ArrayList
 public class Stack<T> {

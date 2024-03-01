@@ -1,27 +1,28 @@
-package com.data_structures.binary_search_tree;
+package com.data_structures.avl_tree;
 
 // Not copied directly but inspried by the code from "Data Structures and Algorithm Analysis in Java" by Mark Allen Weiss
-// https://users.cs.fiu.edu/~weiss/dsaajava3/code/BinarySearchTree.java
-public class BinarySearchTree<T extends Comparable<? super T>> {
-    private class BinaryNode<E> {
+// https://users.cs.fiu.edu/~weiss/dsaajava3/code/AvlTree.java
+// Uses my BinarySearchTree.java as a base
+public class AvlTree<T extends Comparable<? super T>> {
+    private class AvlNode<E> {
         E element;
-        BinaryNode<E> left;
-        BinaryNode<E> right;
+        AvlNode<E> left;
+        AvlNode<E> right;
 
-        BinaryNode(E element) {
+        AvlNode(E element) {
             this(element, null, null);
         }
 
-        BinaryNode(E element, BinaryNode<E> left, BinaryNode<E> right) {
+        AvlNode(E element, AvlNode<E> left, AvlNode<E> right) {
             this.element = element;
             this.left = left;
             this.right = right;
         }
     }
 
-    private BinaryNode<T> root;
+    private AvlNode<T> root;
 
-    public BinarySearchTree() {
+    public AvlTree() {
         this.root = null;
     }
 
@@ -45,7 +46,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return findMin(root);
     }
 
-    private T findMin(BinaryNode<T> node) {
+    private T findMin(AvlNode<T> node) {
         if(node == null) {
             return null;
         } else if(node.left == null) {
@@ -59,7 +60,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return findMax(root);
     }
 
-    private T findMax(BinaryNode<T> node) {
+    private T findMax(AvlNode<T> node) {
         if(node == null) {
             return null;
         } else if (node.right == null) {
@@ -77,7 +78,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         printTree(root);
     }
 
-    public BinaryNode<T> getRoot() {
+    public AvlNode<T> getRoot() {
         return root;
     }
 
@@ -93,9 +94,9 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return countLeaves(root);
     }
 
-    private BinaryNode<T> insert(T element, BinaryNode<T> node) {
+    private AvlNode<T> insert(T element, AvlNode<T> node) {
         if(node == null) {
-            return new BinaryNode<T>(element);
+            return new AvlNode<T>(element);
         }
 
         int comparison = element.compareTo(node.element);
@@ -108,7 +109,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return node;
     }
 
-    private boolean contains(T element, BinaryNode<T> node) {
+    private boolean contains(T element, AvlNode<T> node) {
         if(node == null) {
             return false;
         }
@@ -123,7 +124,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         }
     }
 
-    private BinaryNode<T> remove(T element, BinaryNode<T> node) {
+    private AvlNode<T> remove(T element, AvlNode<T> node) {
         if(node == null) {
             return node;
         }
@@ -156,7 +157,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return array;
     }
 
-    private int toArray(BinaryNode<T> node, T[] array, int index) {
+    private int toArray(AvlNode<T> node, T[] array, int index) {
         if(node != null) {
             index = toArray(node.left, array, index);
             array[index++] = node.element;
@@ -166,7 +167,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return index;
     }
 
-    private void printTree(BinaryNode<T> node) {
+    private void printTree(AvlNode<T> node) {
         if(node != null) {
             printTree(node.left);
             System.out.println(node.element);
@@ -174,7 +175,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         }
     }
 
-    private int height(BinaryNode<T> node) {
+    private int height(AvlNode<T> node) {
         if(node == null) {
             return -1;
         }
@@ -182,7 +183,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return 1 + Math.max(height(node.left), height(node.right));
     }
 
-    private int size(BinaryNode<T> node) {
+    private int size(AvlNode<T> node) {
         if(node == null) {
             return 0;
         }
@@ -190,7 +191,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return 1 + size(node.left) + size(node.right);
     }  
 
-    private int countLeaves(BinaryNode<T> node) {
+    private int countLeaves(AvlNode<T> node) {
         if(node == null) {
             return 0;
         }

@@ -1,5 +1,6 @@
 package com.data_structures.arraylist;
 
+// Not copied directly but inspried by the code from "Data Structures and Algorithm Analysis in Java" by Mark Allen Weiss
 public class ArrayList<T> {
     private int DEFAULT_CAPACITY = 10;
     private Object[] list;

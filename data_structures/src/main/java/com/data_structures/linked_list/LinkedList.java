@@ -1,5 +1,6 @@
 package com.data_structures.linked_list;
 
+// Not copied directly but inspried by the code from "Data Structures and Algorithm Analysis in Java" by Mark Allen Weiss
 public class LinkedList<T> {
     private class Node<E> {
         public T data;
