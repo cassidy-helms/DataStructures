@@ -8,7 +8,7 @@ public class ArrayList<T> {
 
     public ArrayList() {
         this.list = new Object[DEFAULT_CAPACITY];
-        this.size = 0;
+        this.size = 1;
     }
 
     public int size() {
